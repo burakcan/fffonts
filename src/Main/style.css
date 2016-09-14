@@ -1,0 +1,161 @@
+* {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  overflow: hidden;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  background: #222;
+}
+
+.Sidebar {
+  position: fixed;
+  right: -300px;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  background: #fff;
+  transition: transform 0.3s 0.05s ease;
+  z-index: 100;
+  border-left: 1px solid #304FFE;
+}
+
+.SidebarOverlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  z-index: 90;
+}
+
+.App {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  height: 100vh;
+  background: #fff;
+}
+
+.Main {
+  transform-style: preserve-3d;
+  perspective: 3000px;
+}
+
+.Main.sidebarOpen .Sidebar {
+  transform: translateX(-300px);
+}
+
+.Main.sidebarOpen .SidebarOverlay {
+  display: block;
+}
+
+.Main.sidebarOpen .App {
+  transform: translateZ(-200px) rotateY(10deg);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+
+.Header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid #304FFE;
+  padding: 0 20px;
+}
+
+.Logo {
+  float: left;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+  color: #FF3D00;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.HeaderNavigation {
+  float: left;
+  margin-left: 20px;
+}
+
+.HeaderNavigation a {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-left: 20px;
+  text-decoration: none;
+  color: #bbb;
+}
+
+.HeaderNavigation a.active {
+  color: #304FFE;
+}
+
+.Search {
+  float: right;
+  height: 50px;
+  position: relative;
+}
+
+.SearchIcon {
+  position: absolute;
+  right: 6px;
+  top: 16px;
+  pointer-events: none;
+  font-size: 18px;
+  color: #304FFE;
+}
+
+.SearchInput {
+  display: block;
+  margin-top: 10px;
+  height: 30px;
+  width: 30px;
+  background: transparent;
+  border-radius: 15px;
+  border: 1px solid #304FFE;
+  transition: width .3s ease;
+  outline: none;
+  cursor: pointer;
+  font-size: 12px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  padding: 0;
+  color: transparent;
+}
+
+.SearchInput:focus {
+  width: 200px;
+  cursor: auto;
+  padding: 0 30px 0 10px;
+  color: inherit;
+}
+
+.MenuButton {
+  float: right;
+  display: block;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  border: none;
+  outline: none;
+  margin: 0 -20px 0 10px;
+  line-height: 56px;
+  cursor: pointer;
+  background: #304FFE;
+  color: #fff;
+}
+
+.Content {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  height: calc(100% - 50px);
+  overflow: auto;
+  width: 100%;
+}

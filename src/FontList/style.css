@@ -1,0 +1,112 @@
+.FontList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 20px;
+  position: relative;
+  height: calc(100vh - 50px);
+}
+
+.FontListItem {
+  flex: none;
+  flex-basis: 300px;
+  min-height: 300px;
+  margin: 40px;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #dedede;
+  position: relative;
+}
+
+.FontListItem:after {
+  content: "";
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  display: block;
+  left: 50%;
+  top: 50%;
+  margin: -55px 0 0 -75px;
+  border-radius: 75px;
+  background: #304FFE;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s 0.5s ease,
+              width 0.3s ease,
+              height 0.3s ease,
+              border-radius 0.3s ease,
+              margin 0.3s ease,
+              top 0.3s ease,
+              left 0.3s ease;
+}
+
+.FontListItem.waiting:after,
+.FontListItem.loading:after {
+  opacity: 1;
+}
+
+.FontListItem.failed:after {
+  opacity: 1;
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  margin: 0;
+}
+
+.FontListItemHeader {
+  flex: none;
+  font-weight: 400;
+  border-bottom: 1px solid #FF3D00;
+  font-size: 12px;
+  padding: 10px 0;
+  font-family: 'Open Sans', sans-serif;
+  cursor: pointer;
+}
+
+.FontListItemHeader h3 {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  float: left;
+  line-height: 18px;
+}
+
+.FontListItemHeader .HeaderButton {
+  display: block;
+  float: right;
+  background: none;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  color: #304FFE;
+  margin-left: 10px;
+}
+
+.FontListItemHeader .HeaderButton .material-icons {
+  font-size: 18px;
+}
+
+
+.FontListItemContent {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  padding: 20px 0;
+  opacity: 1;
+  transition: opacity 0.5s 0.5s ease;
+  cursor: pointer;
+}
+
+.FontListItem.waiting .FontListItemContent,
+.FontListItem.loading .FontListItemContent {
+  opacity: 0;
+}
